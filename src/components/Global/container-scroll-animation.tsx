@@ -7,7 +7,7 @@ const ContainerScroll = ({
     children,
 }: {
     titleComponent: string | React.ReactNode;
-    children: React.ReactNode;
+    children: any|React.ReactNode;
 }) => {
     const containerRef = useRef<any>(null);
     const { scrollYProgress } = useScroll({
