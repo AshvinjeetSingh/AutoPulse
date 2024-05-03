@@ -6,11 +6,12 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-
 import React from 'react'
 import { menuOptions } from '@/lib/constant'
 import { Link } from 'lucide-react'
 import clsx from 'clsx'
+import { ModeToggle } from '../Global/mode-toggle'
+import { Separator } from '@radix-ui/react-dropdown-menu'
 
 type Props = {}
 
@@ -28,7 +29,7 @@ const SideMenu = (props: Props) => {
                                         <Link
                                             href={menuItem.href}
                                             className={clsx(
-                                                'group h-8 w-8 flex items-center justify-center  scale-[1.5] rounded-lg p-[3px]  cursor-pointer',
+                                                'group h-8 w-8 flex items-center justify-center  scale-[1] rounded-lg p-[3px]  cursor-pointer',
                                                 {
                                                     'dark:bg-[#2F006B] bg-[#EEE0FF] ':
                                                         pathName === menuItem.href,
@@ -51,7 +52,10 @@ const SideMenu = (props: Props) => {
                         </ul>
                     ))}
                 </TooltipProvider>
-
+                <Separator />
+                <div className="flex items-center justify-center flex-col gap-8">
+                    <ModeToggle />
+                </div>
             </div>
         </nav>
 
