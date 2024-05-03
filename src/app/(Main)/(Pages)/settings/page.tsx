@@ -50,8 +50,8 @@ const Settings = (props: Props) => {
             userImage={user?.profileImage || ''}
             onUpload={uploadProfileImage}
             
-            ><ProfilePicture/>
-              <ProfileForm /> */}
+            ></ProfilePicture> */}
+              <ProfileForm />
           </div>
       </div>
   )
