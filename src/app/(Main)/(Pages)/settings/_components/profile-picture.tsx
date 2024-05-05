@@ -1,8 +1,10 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/router'
 import React from 'react'
 import UploadCareButton from './uploadcare-button'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import { X } from 'lucide-react'
 
 type Props = {
     userImage: string | null

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import * as LR from '@uploadcare/blocks';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 type Props = {
     onUpload: (e: string) => any
 }
