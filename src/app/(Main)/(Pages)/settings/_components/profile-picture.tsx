@@ -21,6 +21,10 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
             router.refresh()
         }
     }
+
+    const imgStyle={
+        borderRadius:"50%"
+    }
     return (
         <div className="flex flex-col">
             <p className="text-lg text-white"> Profile Picture</p>
@@ -32,6 +36,7 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
                                 src={userImage}
                                 alt="User_Image"
                                 fill
+                                style={imgStyle}
                             />
                         </div>
                         <Button

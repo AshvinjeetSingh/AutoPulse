@@ -28,8 +28,8 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
         mode: 'onChange',
         resolver: zodResolver(EditUserProfileSchema),
         defaultValues: {
-            name: "AJ",
-            email: "tets@xyz",
+            name: user.name,
+            email: user.email,
         },
     })
 
@@ -42,7 +42,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
     }
 
     useEffect(() => {
-        form.reset({ name: "", email: "" })
+        form.reset({ name: user.name, email: user.email })
     }, [user])
 
     return (
@@ -53,7 +53,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
             >
                 <FormField
                     disabled={isLoading}
-                    // control={form.control}
+                    control={form.control}
                     name="name"
                     render={({ field }) => (
                         <FormItem>
