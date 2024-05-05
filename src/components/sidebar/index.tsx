@@ -23,13 +23,14 @@ const SideMenu = (props: Props) => {
                 <TooltipProvider>
                     {menuOptions.map((menuItem) => (
                         <ul key={menuItem.name}>
+                            {/* {console.log("Menu", pathName, menuItem.href, pathName === menuItem.href)} */}
                             <Tooltip delayDuration={0}>
                                 <TooltipTrigger>
                                     <li>
                                         <Link
                                             href={menuItem.href}
                                             className={clsx(
-                                                'group h-8 w-8 flex items-center justify-center  scale-[1] rounded-lg p-[3px]  cursor-pointer',
+                                                'group h-8 w-8 flex items-center justify-center  scale-[1] rounded-lg p-[3px] ',
                                                 {
                                                     'dark:bg-[#2F006B] bg-[#EEE0FF] ':
                                                         pathName === menuItem.href,
@@ -38,7 +39,9 @@ const SideMenu = (props: Props) => {
                                         >
                                             <menuItem.Component
                                                 selected={pathName === menuItem.href}
+                                                // href={menuItem.href}
                                             />
+                                            
                                         </Link>
                                     </li>
                                 </TooltipTrigger>
@@ -47,6 +50,7 @@ const SideMenu = (props: Props) => {
                                     className="bg-black/10 backdrop-blur-xl"
                                 >
                                     <p>{menuItem.name}</p>
+                                    {/* {console.log("MENU",menuItem.name)} */}
                                 </TooltipContent>
                             </Tooltip>
                         </ul>
