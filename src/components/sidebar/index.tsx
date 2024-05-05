@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/tooltip"
 import React from 'react'
 import { menuOptions } from '@/lib/constant'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 import clsx from 'clsx'
 import { ModeToggle } from '../Global/mode-toggle'
 import { Separator } from '@radix-ui/react-dropdown-menu'
