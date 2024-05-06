@@ -60,7 +60,7 @@ const WorkFlow = ({ description, name, id, publish }: Props) => {
                 </Label>
                 <Switch
                     id="airplane-mode"
-                    defaultChecked={publish!}
+                    // defaultChecked={publish!}
                 />
                 </div>
         </Card>

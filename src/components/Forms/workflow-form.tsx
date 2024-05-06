@@ -52,6 +52,10 @@ function WorkflowForm({title,subTitle}: Props) {
     //     setClose()
     // }
 
+    const handleSubmit=()=>{
+        
+    }
+
     return (
         <Card className="w-full max-w-[650px] border-none">
             {title && subTitle && (
@@ -63,7 +67,7 @@ function WorkflowForm({title,subTitle}: Props) {
             <CardContent>
                 <Form {...form}>
                     <form
-                        // onSubmit={form.handleSubmit(handleSubmit)}
+                        onSubmit={form.handleSubmit(handleSubmit)}
                         className="flex flex-col gap-4 text-left"
                     >
                         <FormField
