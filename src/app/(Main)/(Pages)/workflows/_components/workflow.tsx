@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
     Card,
@@ -9,6 +10,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
+import { toast } from 'sonner'
+import { onFlowPublish } from '../_actions/workflow-connection'
 
 type Props = {
     name: string
@@ -18,6 +21,13 @@ type Props = {
 }
 
 const WorkFlow = ({ description, name, id, publish }: Props) => {
+    const onPublishFlow = async (event: any) => {
+        const response = await onFlowPublish(
+            id,
+            event.target.ariaChecked === 'false'
+        )
+        if (response) toast.message(response)
+    }
     return (
         <Card className="flex w-full items-center justify-between">
             <CardHeader className="flex flex-col gap-4">
@@ -60,7 +70,8 @@ const WorkFlow = ({ description, name, id, publish }: Props) => {
                 </Label>
                 <Switch
                     id="airplane-mode"
-                    // defaultChecked={publish!}
+                    defaultChecked={publish!}
+                    onClick={onPublishFlow}
                 />
                 </div>
         </Card>

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider"
 import { ClerkProvider } from '@clerk/nextjs'
 import ModalProvider from "@/providers/modal-provider";
 import { Toaster } from "sonner";
+import { BillingProvider } from "@/providers/billing-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,21 +21,23 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <ModalProvider>
-        {children}
-        <Toaster/>
-        </ModalProvider>
-      </ThemeProvider>
-      </body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <BillingProvider>
+              <ModalProvider>
+                {children}
+                <Toaster />
+              </ModalProvider>
+            </BillingProvider>
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider >
   );
 }

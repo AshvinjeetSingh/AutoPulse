@@ -16,6 +16,7 @@ import {v4} from 'uuid'
 import { EditorCanvasDefaultCardTypes } from '@/lib/constant';
 import FlowInstance from './flow-instance';
 import EditorCanvasSidebar from './editor-canvas-sidebar';
+import { onGetNodesEdges } from '../../../_actions/workflow-connection';
 
 type Props = {}
 
@@ -60,7 +61,6 @@ const EditorCanvas = (props: Props) => {
     const onDrop = useCallback(
         (event: any) => {
             event.preventDefault()
-
             const type: EditorCanvasCardType['type'] = event.dataTransfer.getData(
                 'application/reactflow'
             )
@@ -145,6 +145,21 @@ const EditorCanvas = (props: Props) => {
         }),
         []
     )
+
+    const onGetWorkFlow = async () => {
+        setIsWorkFlowLoading(true)
+        const response = await onGetNodesEdges(pathname.split('/').pop()!)
+        if (response) {
+            setEdges(JSON.parse(response.edges!))
+            setNodes(JSON.parse(response.nodes!))
+            setIsWorkFlowLoading(false)
+        }
+        setIsWorkFlowLoading(false)
+    }
+
+    useEffect(() => {
+        onGetWorkFlow()
+    }, [])
 
     useEffect(() => {
         dispatch({ type: 'LOAD_DATA', payload: { edges, elements: nodes } })

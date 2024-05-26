@@ -24,7 +24,9 @@ const EditorCanvasCardSingle = ({data}:{data:EditorCanvasCardType}) => {
 
   return (
    <>
-          {data.type !== 'Trigger' && data.type !== 'Google Drive' && (
+          {data.type !== 'Trigger' && 
+          data.type !== 'Google Drive' && 
+          (
               <CustomHandle
                   type="target"
                   position={Position.Top}
@@ -72,6 +74,11 @@ const EditorCanvasCardSingle = ({data}:{data:EditorCanvasCardType}) => {
                   })}
               ></div>
           </Card>
+          <CustomHandle
+              type="source"
+              position={Position.Bottom}
+              id="a"
+          />
     </>
   )
 }
